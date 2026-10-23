@@ -1,0 +1,44 @@
+name: Tool request
+description: Ask for a tool, or a change to one that exists.
+title: "tool: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Devbench runs in the page you have open. Pasted text is not sent to a server.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of request is this?
+      options:
+        - A new tool
+        - A change to an existing tool
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Tool
+      placeholder: JSON
+    validations:
+      required: true
+  - type: textarea
+    id: job
+    attributes:
+      label: What job should it do?
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Small fake example
+    validations:
+      required: false
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Before you submit
+      options:
+        - label: I understand the tool must run in the browser and must not upload the input.
+          required: true
